@@ -1,0 +1,25 @@
+class Solution:
+    def matrixReshape(self, mat: List[List[int]], r: int, c: int) -> List[List[int]]:
+        
+        mat_size = len(mat)*len(mat[0])
+        new_size = r*c
+        
+        if new_size != mat_size:
+            return mat
+        
+        new_mat = []
+        elements = []
+        
+        for i in mat:
+            for j in i:
+                elements.append(j)
+        
+        index = 0
+        for i in range(0,r):
+            l=[]
+            for j in range(0,c):
+                l.append(elements[index])
+                index += 1
+            new_mat.append(l)
+            
+        return(new_mat)
