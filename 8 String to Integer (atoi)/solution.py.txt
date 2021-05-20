@@ -1,0 +1,31 @@
+class Solution:
+    def myAtoi(self, s: str) -> int:
+        
+        s = s.strip()
+        
+        num = ''
+        sign = ''
+        
+        if len(s)>0 and (s[0] == '+' or s[0] == '-'):
+            sign = s[0];
+            s = s[1:]
+        
+        if len(s)>0 and (ord(s[0]) >=48 and ord(s[0])<=57):
+            for i in s:
+                if ord(i) >=48 and ord(i)<=57:
+                    num+=i
+                else:
+                    break
+        else:
+            num += '0'
+        
+        num = int(num)
+        
+        if sign == '-':
+            if num>2147483648:
+                num = 2147483648
+            return -1*(num)
+        elif num>2147483647:
+            num =2147483647
+        
+        return num
