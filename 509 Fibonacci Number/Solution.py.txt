@@ -1,0 +1,20 @@
+def series(n):
+        lst = []
+        lst.append('0')
+        lst.append('1')
+        for i in range(2,n):
+            num = str(int(lst[i-1])+int(lst[i-2]))
+            lst.append(num)
+        
+        return lst
+    
+class Solution:
+    
+    
+    def fib(self, n: int) -> int:
+        ser = series(n)
+        #print(ser)
+        if n>1:
+            return(int(ser[n-1])+int(ser[n-2]))
+        else:
+            return n
